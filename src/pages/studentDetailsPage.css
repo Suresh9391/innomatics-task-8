@@ -1,0 +1,30 @@
+/* src/pages/StudentDetailsPage.css */
+.container {
+    background-color: #f8f9fa; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #343a40; 
+}
+
+.card {
+    border: none; 
+    border-radius: 8px;
+}
+
+.card-title {
+    font-size: 24px; 
+    color: #007bff; 
+}
+
+.card-text {
+    font-size: 18px; 
+    color: #495057; 
+}
+
+.button {
+    margin-top: 20px; 
+}
