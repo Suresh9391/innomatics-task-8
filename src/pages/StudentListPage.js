@@ -40,40 +40,45 @@ const StudentListPage = () => {
         <div className="student-list-container mt-3">
             <h1 className="text-center mb-4">Student List</h1>
             <Row className="mb-3">
+            <div className="search-container">
                 <Col md={4}>
                     <InputGroup>
                         <FormControl
                             placeholder="Search by name"
                             value={searchTerm}
                             onChange={handleSearchChange}
-                            className="mb-3"
+                            className="on-change"
                         />
                     </InputGroup>
                 </Col>
-                <Col md={4} sm={6}>
-                    <DropdownButton
-                        variant="secondary"
-                        title={selectedClass || "Filter by Class"}
-                        className="w-100"
-                        onSelect={handleClassFilterChange}
-                    >
-                        <Dropdown.Item eventKey="">All Classes</Dropdown.Item>
-                        <Dropdown.Item eventKey="10th Grade">10th Grade</Dropdown.Item>
-                        <Dropdown.Item eventKey="11th Grade">11th Grade</Dropdown.Item>
-                        <Dropdown.Item eventKey="12th Grade">12th Grade</Dropdown.Item>
-                    </DropdownButton>
-                </Col>
-                <Col md={4} sm={6}>
-                    <DropdownButton
-                        variant="secondary"
-                        title={`Sort by: ${sortOrder === 'name' ? 'Name' : 'Class'}`}
-                        className="w-100"
-                        onSelect={handleSortChange}
-                    >
-                        <Dropdown.Item eventKey="name">Name</Dropdown.Item>
-                        <Dropdown.Item eventKey="class">Class</Dropdown.Item>
-                    </DropdownButton>
-                </Col>
+                <div className="dropdown-container">
+                    <Col md={4} sm={6}>
+                        <DropdownButton
+                            variant="secondary"
+                            title={selectedClass || "Filter by Class"}
+                            className="w-100 name "
+                            onSelect={handleClassFilterChange}
+                        >
+                            <Dropdown.Item eventKey="">All Classes</Dropdown.Item>
+                            <Dropdown.Item eventKey="10th Grade">10th Grade</Dropdown.Item>
+                            <Dropdown.Item eventKey="11th Grade">11th Grade</Dropdown.Item>
+                            <Dropdown.Item eventKey="12th Grade">12th Grade</Dropdown.Item>
+                        </DropdownButton>
+                    </Col>
+                    <Col md={4} >
+                        <DropdownButton
+                            variant="secondary"
+                            title={`Sort by: ${sortOrder === 'name' ? 'Name' : 'Class'}`}
+                            className="w-100 change"
+                            onSelect={handleSortChange}
+
+                        >
+                            <Dropdown.Item eventKey="name" >Name</Dropdown.Item>
+                            <Dropdown.Item eventKey="class">Class</Dropdown.Item>
+                        </DropdownButton>
+                    </Col>
+                </div>
+              </div>      
             </Row>
             <Table striped bordered hover responsive>
                 <thead>
@@ -91,7 +96,9 @@ const StudentListPage = () => {
                             <td>{student.email}</td>
                             <td>{student.classRoom}</td>
                             <td>
+                            <div className="button-container">
                                 <Button
+                                    className="delete"
                                     variant="danger"
                                     onClick={() => {
                                         if (window.confirm(`Are you sure you want to delete ${student.name}?`)) {
@@ -103,11 +110,12 @@ const StudentListPage = () => {
                                 </Button>
                                 <Button
                                     variant="primary"
-                                    className="ml-2 "
+                                    className="ml-2 edit"
                                     onClick={() => navigate(`/edit-student/${student.id}`)}
                                 >
                                     Edit
                                 </Button>
+                            </div>    
                             </td>
                         </tr>
                     ))}

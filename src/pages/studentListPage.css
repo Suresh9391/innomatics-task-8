@@ -100,3 +100,38 @@ table td button:hover, table td a:hover {
     background-color: #007bff;
     color: #fff;
 }
+@media screen and (max-width:767px){
+    .on-change{
+       margin-bottom:10px;
+    }
+    .name{
+        margin-top:10px;
+    }
+    .dropdown-container{
+        display:flex;
+    }
+    .change{
+        margin-top:10px;
+    }
+    .delete{
+        margin-bottom:10px;
+    }
+    .button-container{
+        display:flex;
+    }
+    .edit{
+        height:37px;
+        width:70px;
+    }
+}
+@media screen and (min-width:768px){
+    .dropdown-container{
+        display:flex;
+    }
+    .search-container{
+        display:flex;
+    }
+    .change{
+        margin-left:40px;
+    }
+}
