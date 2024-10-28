@@ -8,7 +8,7 @@ export const StudentProvider = ({ children }) => {
 
     // Fetch data from public/studentData.json
     useEffect(() => {
-        fetch('/student.json')
+        fetch('/Student.json')
             .then((response) => response.json())
             .then((data) => setStudents(data))
             .catch((error) => console.error("Error fetching student data:", error));
