@@ -37,7 +37,7 @@ const StudentListPage = () => {
     const currentStudents = sortedStudents.slice(startIndex, startIndex + studentsPerPage);
 
     return (
-        <div className="student-list-container">
+        <div className="student-list-container mt-3">
             <h1 className="text-center mb-4">Student List</h1>
             <Row className="mb-3">
                 <Col md={4}>
@@ -46,10 +46,11 @@ const StudentListPage = () => {
                             placeholder="Search by name"
                             value={searchTerm}
                             onChange={handleSearchChange}
+                            className="mb-3"
                         />
                     </InputGroup>
                 </Col>
-                <Col md={4}>
+                <Col md={4} sm={6}>
                     <DropdownButton
                         variant="secondary"
                         title={selectedClass || "Filter by Class"}
@@ -62,7 +63,7 @@ const StudentListPage = () => {
                         <Dropdown.Item eventKey="12th Grade">12th Grade</Dropdown.Item>
                     </DropdownButton>
                 </Col>
-                <Col md={4}>
+                <Col md={4} sm={6}>
                     <DropdownButton
                         variant="secondary"
                         title={`Sort by: ${sortOrder === 'name' ? 'Name' : 'Class'}`}
@@ -102,7 +103,7 @@ const StudentListPage = () => {
                                 </Button>
                                 <Button
                                     variant="primary"
-                                    className="ml-2"
+                                    className="ml-2 "
                                     onClick={() => navigate(`/edit-student/${student.id}`)}
                                 >
                                     Edit
